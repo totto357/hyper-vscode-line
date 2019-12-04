@@ -1,0 +1,12 @@
+{
+  "name": "hyper-vscode-like",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "totto357",
+  "license": "MIT",
+  "dependencies": {
+    "color": "^3.1.2",
+    "tildify": "^2.0.0"
+  }
+}
