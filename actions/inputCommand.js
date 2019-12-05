@@ -1,5 +1,5 @@
-const Dir = require("../module/dir");
-const Git = require("../module/git");
+const Dir = require("../modules/dir");
+const Git = require("../modules/git");
 
 const INPUT_COMMAND = "INPUT_COMMAND";
 

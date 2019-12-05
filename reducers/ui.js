@@ -1,5 +1,5 @@
-const { CHANGE_SESSION } = require("../action/changeSession");
-const { INPUT_COMMAND } = require("../action/inputCommand");
+const { CHANGE_SESSION } = require("../actions/changeSession");
+const { INPUT_COMMAND } = require("../actions/inputCommand");
 
 module.exports = (state, action) => {
   switch (action.type) {

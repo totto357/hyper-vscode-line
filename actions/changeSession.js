@@ -1,5 +1,5 @@
-const Dir = require("../module/dir");
-const Git = require("../module/git");
+const Dir = require("../modules/dir");
+const Git = require("../modules/git");
 
 const CHANGE_SESSION = "CHANGE_SESSION";
 

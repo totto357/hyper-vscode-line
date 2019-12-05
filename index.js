@@ -1,7 +1,7 @@
 exports.middleware = require("./middleware");
-exports.decorateConfig = require("./decorate/config");
-exports.decorateBrowserOptions = require("./decorate/browserOptions");
-exports.decorateHyper = require("./decorate/hyper");
-exports.decorateTabs = require("./decorate/tabs");
-exports.reduceUI = require("./reducer/ui");
-exports.mapHyperState = require("./map/state/hyper");
+exports.decorateConfig = require("./decorators/config");
+exports.decorateBrowserOptions = require("./decorators/browserOptions");
+exports.decorateHyper = require("./decorators/hyper");
+exports.decorateTabs = require("./decorators/tabs");
+exports.reduceUI = require("./reducers/ui");
+exports.mapHyperState = require("./maps/state/hyper");
