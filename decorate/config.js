@@ -1,30 +1,30 @@
-const color = require('color');
+const color = require("color");
 
 module.exports = (config) => {
-  const colorForeground = color(config.foregroundColor || '#fff');
-  const colorBackground = color(config.backgroundColor || '#000');
+  const colorForeground = color(config.foregroundColor || "#fff");
+  const colorBackground = color(config.backgroundColor || "#000");
   const colors = {
     foreground: colorForeground.string(),
     background: colorBackground.lighten(0.3).string()
   };
 
   const configColors = Object.assign({
-    black: '#000000',
-    red: '#ff0000',
-    green: '#33ff00',
-    yellow: '#ffff00',
-    blue: '#0066ff',
-    magenta: '#cc00ff',
-    cyan: '#00ffff',
-    white: '#d0d0d0',
-    lightBlack: '#808080',
-    lightRed: '#ff0000',
-    lightGreen: '#33ff00',
-    lightYellow: '#ffff00',
-    lightBlue: '#0066ff',
-    lightMagenta: '#cc00ff',
-    lightCyan: '#00ffff',
-    lightWhite: '#ffffff'
+    black: "#000000",
+    red: "#ff0000",
+    green: "#33ff00",
+    yellow: "#ffff00",
+    blue: "#0066ff",
+    magenta: "#cc00ff",
+    cyan: "#00ffff",
+    white: "#d0d0d0",
+    lightBlack: "#808080",
+    lightRed: "#ff0000",
+    lightGreen: "#33ff00",
+    lightYellow: "#ffff00",
+    lightBlue: "#0066ff",
+    lightMagenta: "#cc00ff",
+    lightCyan: "#00ffff",
+    lightWhite: "#ffffff"
   }, config.colors);
 
   const hyperStatusLine = Object.assign({
@@ -40,6 +40,9 @@ module.exports = (config) => {
             ${config.css || ''}
             .terms_terms {
                 margin-bottom: 30px;
+            }
+            header {
+                height: 20px;
             }
             .footer_footer {
                 display: flex;

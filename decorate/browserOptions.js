@@ -1,4 +1,4 @@
 module.exports = defaults => Object.assign({}, defaults, {
-  titleBarStyle: 'hidden',
+  titleBarStyle: "hidden",
   frame: true,
 });

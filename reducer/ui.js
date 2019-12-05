@@ -6,7 +6,7 @@ module.exports = (state, action) => {
     case CHANGE_SESSION:
     case INPUT_COMMAND:
       const { payload: { pid, cwd, git } } = action;
-      return state.set('sessionState', { pid, cwd, git });
+      return state.set("sessionState", { pid, cwd, git });
 
     default:
       return state;

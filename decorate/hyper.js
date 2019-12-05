@@ -1,5 +1,5 @@
-const { shell } = require('electron');
-const tildify = require('tildify');
+const { shell } = require("electron");
+const tildify = require("tildify");
 
 module.exports = (Hyper, { React }) => {
   return class extends React.PureComponent {
@@ -12,7 +12,7 @@ module.exports = (Hyper, { React }) => {
 
     handleCwdClick() {
       const state = this.props.sessionState || {};
-      shell.openExternal('file://' + state.cwd);
+      shell.openExternal("file://" + state.cwd);
     }
 
     handleBranchClick() {
@@ -27,10 +27,10 @@ module.exports = (Hyper, { React }) => {
       const footerChildren = [];
       if (state.cwd) {
         const cwdElement =
-          h('div', { className: 'footer_group group_overflow' }, [
-            h('div', { className: 'component_component component_cwd' }, [
-              h('div', {
-                className: 'component_item item_icon item_cwd item_clickable',
+          h("div", { className: "footer_group group_overflow" }, [
+            h("div", { className: "component_component component_cwd" }, [
+              h("div", {
+                className: "component_item item_icon item_cwd item_clickable",
                 title: state.cwd,
                 onClick: this.handleCwdClick,
               }, tildify(String(state.cwd))),
@@ -43,22 +43,22 @@ module.exports = (Hyper, { React }) => {
       if (state.git) {
         const git = state.git;
         const gitElement =
-          h('div', { className: 'footer_group' }, [
-            h('div', { className: 'component_component component_git' }, [
-              h('div', {
-                className: `component_item item_icon item_branch ${git.remote ? 'item_clickable' : ''}`,
+          h("div", { className: "footer_group" }, [
+            h("div", { className: "component_component component_git" }, [
+              h("div", {
+                className: `component_item item_icon item_branch ${git.remote ? "item_clickable" : ""}`,
                 title: git.remote,
                 onClick: this.handleBranchClick,
               }, git.branch),
 
-              h('div', {
-                className: 'component_item item_icon item_number item_dirty',
-                title: `${git.dirty} dirty file${git.dirty > 1 ? 's' : ''}`,
+              h("div", {
+                className: "component_item item_icon item_number item_dirty",
+                title: `${git.dirty} dirty file${git.dirty > 1 ? "s" : ""}`,
               }, git.dirty),
 
-              h('div', {
-                className: 'component_item item_icon item_number item_ahead',
-                title: `${git.ahead} commit${git.ahead > 1 ? 's' : ''} ahead`,
+              h("div", {
+                className: "component_item item_icon item_number item_ahead",
+                title: `${git.ahead} commit${git.ahead > 1 ? "s" : ""} ahead`,
               }, git.ahead),
             ]),
           ]);
@@ -66,14 +66,29 @@ module.exports = (Hyper, { React }) => {
         footerChildren.push(gitElement);
       }
 
-      const footer = h('footer', { className: 'footer_footer' }, footerChildren);
+      const footer = h("footer", { className: "footer_footer" }, footerChildren);
+
+      const overlay = h("div", {
+        id: "overlay",
+        style: {
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+          backgroundColor: "transparent",
+          border: "1px solid rgba(255, 255, 255, .2)",
+          borderTopColor: "transparent",
+          borderRadius: "4px",
+          zIndex: "1000000",
+        }
+      });
 
       const { customChildren } = this.props
       const existingChildren = customChildren ? [...customChildren] : []
 
       return (
         h(Hyper, Object.assign({}, this.props, {
-          customInnerChildren: existingChildren.concat(footer)
+          customInnerChildren: existingChildren.concat(footer, overlay)
         }))
       );
     }

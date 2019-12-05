@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { exec } = require("child_process");
 
 const cwd = (pid) => {
   return new Promise((resolve, reject) => {

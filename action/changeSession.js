@@ -8,14 +8,16 @@ const changeSession = async (store, action) => {
   const cwd = await Dir.cwd(pid);
   const git = await Git.all(cwd);
 
-  return {
-    type: CHANGE_SESSION,
-    payload: {
-      pid,
-      cwd,
-      git,
-    }
-  }
+  return (dispatch) => {
+    dispatch({
+      type: CHANGE_SESSION,
+      payload: {
+        pid,
+        cwd,
+        git,
+      }
+    });
+  };
 };
 
 const getPid = (store, action) => {

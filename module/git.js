@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { exec } = require("child_process");
 
 const isGitDir = (dir) => {
   return new Promise((resolve) => {
@@ -20,9 +20,9 @@ const remote = (repo) => {
   return new Promise((resolve, reject) => {
     exec(`git ls-remote --get-url`, { cwd: repo }, (err, stdout) => {
       const _remote = stdout.trim()
-        .replace(/^git@(.*?):/, 'https://$1/')
-        .replace(/[A-z0-9\-]+@/, '')
-        .replace(/\.git$/, '');
+        .replace(/^git@(.*?):/, "https://$1/")
+        .replace(/[A-z0-9\-]+@/, "")
+        .replace(/\.git$/, "");
       return resolve(_remote);
     });
   });
@@ -33,7 +33,7 @@ const dirty = (repo) => {
     exec(`git status --porcelain --ignore-submodules -uno`, { cwd: repo }, (err, stdout) => {
       err
         ? reject(err)
-        : resolve(!stdout ? 0 : parseInt(stdout.trim().split('\n').length, 10));
+        : resolve(!stdout ? 0 : parseInt(stdout.trim().split("\n").length, 10));
     });
   });
 }
