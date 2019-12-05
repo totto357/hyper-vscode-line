@@ -6,7 +6,7 @@
   "author": "totto357",
   "license": "MIT",
   "dependencies": {
-    "color": "^3.1.2",
+    "stylis": "^3.5.4",
     "tildify": "^2.0.0"
   }
 }
