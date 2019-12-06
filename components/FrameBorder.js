@@ -4,7 +4,7 @@ module.exports = React => {
   return class extends React.PureComponent {
     render() {
       const h = React.createElement;
-      const style = h("style", {}, stylis("#hyper", this.css));
+      const style = h("style", {}, css);
 
       return h("div", {
         style: {
@@ -20,13 +20,11 @@ module.exports = React => {
         }
       }, [style]);
     }
-
-    get css() {
-      return `
-        div.hyper_main {
-          border-width: 0 !important;
-        }
-      `
-    }
   }
 }
+
+const css = stylis("#hyper", `
+div.hyper_main {
+  border-width: 0 !important;
+}
+`);
