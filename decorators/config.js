@@ -1,3 +1,30 @@
+const colorsToCss = (prefix, colors) => {
+  return Object.keys(colors)
+    .map((key) => `--${prefix}-${key}-color: ${colors[key]};`)
+    .join("\n");
+}
+
+const createHyperColors = (config, colorPalette) => {
+  const foreground = config.foregroundColor || colorPalette.lightWhite;
+  const background = config.backgroundColor || colorPalette.black;
+  const border = config.borderColor || foreground;
+
+  const colors = { foreground, background, border };
+  return colorsToCss("hyper", colors);
+}
+
+const createHvlColors = (config, colorPalette) => {
+  const hvlConfig = config.hyperVscodeLine || {};
+
+  const foreground = hvlConfig.foregroundColor || config.foregroundColor || colorPalette.lightWhite;
+  const background = hvlConfig.backgroundColor || config.backgroundColor || colorPalette.black;
+  const dirty = hvlConfig.dirtyColor || colorPalette.lightYellow;
+  const ahead = hvlConfig.aheadColor || colorPalette.blue;
+
+  const colors = { foreground, background, dirty, ahead };
+  return colorsToCss("hvl", colors);
+}
+
 module.exports = (config) => {
   const colorPalette = Object.assign({
     black: "#000000",
@@ -18,22 +45,10 @@ module.exports = (config) => {
     lightWhite: "#ffffff"
   }, config.colors);
 
-  const hvlConfig = config.hyperVscodeLine || {};
-
-  const foreground = hvlConfig.foregroundColor || config.foregroundColor || colorPalette.lightWhite;
-  const background = hvlConfig.backgroundColor || config.backgroundColor || colorPalette.black;
-  const dirty = hvlConfig.dirtyColor || colorPalette.lightYellow;
-  const ahead = hvlConfig.aheadColor || colorPalette.blue;
-
-  const colors = { foreground, background, dirty, ahead };
-  const cssColors =
-    Object.keys(colors)
-      .map((key) => `--hvl-${key}-color: ${colors[key]};`)
-      .join("\n");
-
   return Object.assign({}, config, {
     css: `
-      :global(:root) { ${cssColors} }
+      :global(:root) { ${createHyperColors(config, colorPalette)} }
+      :global(:root) { ${createHvlColors(config, colorPalette)} }
       ${config.css || ''}
     `
   });
