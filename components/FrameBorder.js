@@ -14,7 +14,7 @@ module.exports = React => {
           pointerEvents: "none",
           backgroundColor: "transparent",
           border: "1px solid rgba(255, 255, 255, .2)",
-          borderTopColor: "transparent",
+          // borderTopColor: "transparent",
           borderRadius: "4px",
           zIndex: "1000000",
         }
