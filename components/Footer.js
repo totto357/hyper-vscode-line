@@ -95,7 +95,7 @@ module.exports = React => {
 
 const css = stylis("#hyper-vscode-line", `
 &.footer_footer {
-  height: 21px;
+  height: 22px;
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -123,9 +123,10 @@ const css = stylis("#hyper-vscode-line", `
 }
 .component_component {
   display: inline-block;
-  line-height: 20px;
+  line-height: 22px;
   height: 100%;
   vertical-align: top;
+  font-weight: 600;
 }
 .component_item {
   position: relative;
