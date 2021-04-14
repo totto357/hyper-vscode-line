@@ -41,7 +41,8 @@ const css = stylis("#hyper", `
 /* Header */
 .header_header {
   -webkit-app-region: drag;
-  height: 20px;
+  height: 27px;
+  background-color: #3c3c3c;
 }
 
 /* Single Tab */
@@ -60,7 +61,7 @@ const css = stylis("#hyper", `
 .tabs_nav {
   background-color: #252526;
   height: 36px;
-  margin-top: 20px;
+  margin-top: 27px;
   -webkit-app-region: no-drag;
 }
 .tabs_list {

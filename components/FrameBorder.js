@@ -15,7 +15,7 @@ module.exports = React => {
           backgroundColor: "transparent",
           border: "1px solid rgba(255, 255, 255, .2)",
           // borderTopColor: "transparent",
-          borderRadius: "4px",
+          borderRadius: "10px",
           zIndex: "1000000",
         }
       }, [style]);

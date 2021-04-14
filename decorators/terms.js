@@ -23,6 +23,6 @@ module.exports = (Terms, { React }) => {
 const css = stylis("#hyper", `
 .terms_terms {
   margin-top: 56px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 `)
